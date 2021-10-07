@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MovieItem from "./components/Movies/Movie";
-import Movies from "./components/Movies/Movies";
 import axios from "axios";
 import AddMovieForm from "./components/Form/AddMovieForm";
+import MovieData from "./components/Movies/MovieData";
 
 const App = () => {
-  const [movies, setMovies] = useState([]);
+  const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -18,7 +18,7 @@ const App = () => {
         const moviesData = await res.data.Search;
         console.log(moviesData);
 
-        setMovies(moviesData);
+        setMovieList(moviesData);
       } catch (error) {
         console.log(error);
       }
@@ -26,17 +26,18 @@ const App = () => {
     getMovies();
   }, []);
   const onAddMovie = (newMovie) => {
-    const newMovies = [newMovie, ...movies];
+    const newMovies = [newMovie, ...movieList];
 
-    return setMovies({ movies: newMovies });
+    return setMovieList({ movieList: newMovies });
   };
+  console.log(movieList);
   return (
     <Router>
-      <AddMovieForm onAddMovie={onAddMovie} />
-      <Movies movies={movies} />
+      <AddMovieForm onAddMovie={onAddMovie} movies={movieList} />
+      <MovieData movieList={movieList} />
       <Switch>
         <Route exact path="/:imdbID">
-          <MovieItem movies={movies} />
+          <MovieItem movieList={movieList} />
         </Route>
       </Switch>
     </Router>
