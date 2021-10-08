@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import MovieItem from "./components/Movies/Movie";
+import MovieItem from "./components/Movies/MovieItem";
 import axios from "axios";
 import AddMovieForm from "./components/Form/AddMovieForm";
 import MovieData from "./components/Movies/MovieData";
@@ -33,11 +33,14 @@ const App = () => {
   console.log(movieList);
   return (
     <Router>
-      <AddMovieForm onAddMovie={onAddMovie} movies={movieList} />
-      <MovieData movieList={movieList} />
+      <AddMovieForm onAdd={onAddMovie} movies={movieList} />
+
       <Switch>
+        <Route exact path="/">
+          <MovieData movies={movieList} />
+        </Route>
         <Route exact path="/:imdbID">
-          <MovieItem movieList={movieList} />
+          <MovieItem />
         </Route>
       </Switch>
     </Router>

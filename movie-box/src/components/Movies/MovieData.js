@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const MovieData = ({ movieList }) => {
+const MovieData = ({ movies }) => {
   return (
     <div className="container">
-      {movieList.map((movie, index) => (
+      {movies.map((movie, index) => (
         <div key={index}>
           <img src={movie.Poster} alt="poster-cover" />
           <h3>{movie.Title}</h3>
-          <button>view</button>
+          <Link to={`/${movie.imdbID}`}>
+            <button>view</button>
+          </Link>
         </div>
       ))}
     </div>
