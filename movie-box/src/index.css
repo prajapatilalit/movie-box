@@ -5,12 +5,8 @@ body {
   box-sizing: border-box;
   font-family: Montserrat, "sense-serif";
 }
-.container {
-  min-width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-}
+
+/* Navbar*/
 .nav_container {
   width: 100vw;
   display: flex;
@@ -38,4 +34,25 @@ body {
   border: 1px solid #fff;
   box-shadow: 2px rgb(121, 49, 49);
   border-radius: 5px;
+}
+
+/*container*/
+
+.container {
+  min-width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/*details page*/
+.details {
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  box-shadow: 10px 10px 5px 1px rgba(0, 0, 255, 0.2);
+}
+
+.details div {
+  margin-right: 15px;
 }
