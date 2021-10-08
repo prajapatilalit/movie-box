@@ -17,11 +17,10 @@ class AddMovieForm extends Component {
     e.preventDefault();
     const { Title, Poster } = this.state;
     const newMovie = {
-      // id: new Date().getTime().toString(),
       Title: Title,
       Poster: Poster,
     };
-    const movieList = this.props.onAddMovie(newMovie);
+    const movieList = this.props.onAdd(newMovie);
     this.setState({
       Title: "",
       Poster: null,
