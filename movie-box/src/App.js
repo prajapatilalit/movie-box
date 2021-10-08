@@ -4,6 +4,7 @@ import MovieItem from "./components/Movies/MovieItem";
 import axios from "axios";
 import AddMovieForm from "./components/Form/AddMovieForm";
 import MovieData from "./components/Movies/MovieData";
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
@@ -33,11 +34,14 @@ const App = () => {
   console.log(movieList);
   return (
     <Router>
-      <AddMovieForm onAdd={onAddMovie} movies={movieList} />
+      <Navbar />
 
       <Switch>
         <Route exact path="/">
           <MovieData movies={movieList} />
+        </Route>
+        <Route path="/addMovie">
+          <AddMovieForm onAdd={onAddMovie} movies={movieList} />
         </Route>
         <Route exact path="/:imdbID">
           <MovieItem />
