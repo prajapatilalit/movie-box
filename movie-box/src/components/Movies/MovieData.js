@@ -5,11 +5,11 @@ const MovieData = ({ movies }) => {
   return (
     <div className="container">
       {movies.map((movie, index) => (
-        <div key={index}>
+        <div className="movie_item" key={index}>
           <img src={movie.Poster} alt="poster-cover" />
-          <h3>{movie.Title}</h3>
+          <p>{movie.Title}</p>
           <Link to={`/${movie.imdbID}`}>
-            <button>view</button>
+            <button className="btn">view</button>
           </Link>
         </div>
       ))}

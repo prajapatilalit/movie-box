@@ -29,7 +29,7 @@ class AddMovieForm extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="form_box">
         <form onSubmit={this.handleFormSubmit}>
           <input
             type="text"
@@ -43,7 +43,7 @@ class AddMovieForm extends Component {
             accept="/*"
             onChange={this.fileHandleChange}
           />
-          <button>Upload</button>
+          <button className="btn">Upload</button>
         </form>
       </div>
     );
