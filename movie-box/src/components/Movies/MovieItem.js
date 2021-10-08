@@ -5,7 +5,7 @@ import axios from "axios";
 const MovieItem = () => {
   const [detail, setDetail] = useState([]);
   const { imdbID } = useParams();
-  // const movieDetail = movieList[parseInt(imdbID, 10)];
+
   useEffect(() => {
     const getMovieDetail = async () => {
       try {
@@ -24,9 +24,21 @@ const MovieItem = () => {
     getMovieDetail();
   }, [imdbID]);
   return (
-    <div>
-      <img src={detail.Poster} alt="single-poster" />
-      <h4>{detail.Title}</h4>
+    <div className="details">
+      <div>
+        <img src={detail.Poster} alt="single-poster" />
+      </div>
+      <div>
+        <h3>Title: {detail.Title}</h3>
+        <h4>Genre: {detail.Genre}</h4>
+        <p>Country: {detail.Country}</p>
+        <p>Awards: {detail.Awards}</p>
+        <p>Language: {detail.Language}</p>
+        <p>Writer: {detail.Writer}</p>
+        <p>imdbRating: {detail.imdbRating}</p>
+        <p>BoxOffice: {detail.BoxOffice}</p>
+        <p>Production: {detail.Production}</p>
+      </div>
     </div>
   );
 };
