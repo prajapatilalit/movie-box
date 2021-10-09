@@ -9,39 +9,42 @@ import Navbar from "./components/Navbar/Navbar";
 const App = () => {
   const [movieList, setMovieList] = useState([]);
 
+  const getMovies = async () => {
+    try {
+      const res = await axios.get(
+        "http://www.omdbapi.com/?s=harry%20potter&apikey=e0620bd4"
+      );
+
+      const moviesData = await res.data.Search;
+      // console.log(moviesData);
+
+      setMovieList(moviesData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const getMovies = async () => {
-      try {
-        const res = await axios.get(
-          "http://www.omdbapi.com/?s=harry%20potter&apikey=e0620bd4"
-        );
-
-        const moviesData = await res.data.Search;
-        console.log(moviesData);
-
-        setMovieList(moviesData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getMovies();
   }, []);
+
   const onAddMovie = (newMovie) => {
     const newMovies = [newMovie, ...movieList];
 
-    return setMovieList({ movieList: newMovies });
+    return setMovieList(newMovies);
   };
-  console.log(movieList);
+
+  console.log([movieList]);
   return (
     <Router>
       <Navbar />
 
       <Switch>
         <Route exact path="/">
-          <MovieData movies={movieList} />
+          <MovieData movieList={movieList} />
         </Route>
         <Route path="/addMovie">
-          <AddMovieForm onAdd={onAddMovie} movies={movieList} />
+          <AddMovieForm onAdd={onAddMovie} movieList={movieList} />
         </Route>
         <Route exact path="/:imdbID">
           <MovieItem />
