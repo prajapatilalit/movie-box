@@ -14,7 +14,7 @@ const MovieItem = () => {
         );
 
         const movieDetail = await res.data;
-        console.log(movieDetail);
+        // console.log(movieDetail);
 
         setDetail(movieDetail);
       } catch (error) {

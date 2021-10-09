@@ -31,6 +31,7 @@ class AddMovieForm extends Component {
     return (
       <div className="form_box">
         <form onSubmit={this.handleFormSubmit}>
+          <h2>Add Movie Here</h2>
           <input
             type="text"
             placeholder="Title"

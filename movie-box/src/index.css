@@ -23,6 +23,7 @@ body {
 .nav_container ul {
   display: flex;
 }
+
 .nav_container ul li {
   list-style: none;
   color: #fff;
@@ -34,6 +35,9 @@ body {
   border: 1px solid #fff;
   box-shadow: 2px rgb(121, 49, 49);
   border-radius: 5px;
+}
+.nav_container ul li:hover {
+  background-color: rgb(151, 47, 47);
 }
 
 /*container*/
@@ -124,4 +128,9 @@ form input {
   border-radius: 5px;
   border: 2px solid gray;
   cursor: pointer;
+}
+
+form h2 {
+  text-transform: uppercase;
+  font-size: 17px;
 }

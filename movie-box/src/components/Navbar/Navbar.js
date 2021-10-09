@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div className="nav_container">
       <div>
-        <i class="fas fa-video 5x"></i>
+        <i className="fas fa-video 5x"></i>
       </div>
       <div>
         <ul>
